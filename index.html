@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday 💖</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Fade animation */
+.fade-in {
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+  padding: 60px 20px;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+/* Message */
+.message {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.3em;
+  line-height: 1.6;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 50px 20px;
+}
+
+.gallery img {
+  width: 250px;
+  border-radius: 15px;
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+/* Buttons */
+button {
+  padding: 15px 30px;
+  font-size: 1em;
+  border: none;
+  border-radius: 30px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  margin: 20px;
+}
+
+button:hover {
+  background: #e63950;
+}
+
+/* Secret message */
+.secret-message {
+  display: none;
+  max-width: 650px;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  font-size: 1.2em;
+  animation: popIn 1s ease forwards;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 24px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="fade-in">
+  <h1>🎉 Happy Birthday, My Favorite Person 🎉</h1>
+</header>
+
+<section class="message fade-in">
+  <p>
+    Dear <strong>[Pragatuu]</strong>,<br><br>
+    Happiest Birthday ye sb aaj tere liye hai aaj ka din bhi,
+    ye sb tere sath celebrate krne ko jo bhi tu mere liye krti h
+    idk m uske layak hu but thanks yrr tu bhot krti h thank you.
+    ha pragati shyd m in chizo ko kabhi return naa kr pau but I'll try my best.
+    <br><br>
+    Bs yrr ek chiz aur bolunga teri life koi bhi dukh ho vo mere
+    paas aa jaye aur meri life m jo bhi khushi ho vo tere paas 
+    chl jaye aur ek baar firse💖
+    <br><br>
+    Happy Birthday 🎂
+  </p>
+</section>
+
+<button onclick="playMusic()">Play Music 🎶</button>
+
+<section class="gallery fade-in">
+  <img src="images/photo1.jpg">
+  <img src="images/photo2.jpg">
+</section>
+
+<button onclick="revealSecret()">Secret Message 💌</button>
+
+<div id="secret" class="secret-message">
+  <p>
+    💖 Surprise 💖<br><br>
+    This is my little secret just for you.
+    You mean more to me than words can ever explain.
+    Thank you for being you, for your kindness,
+    and for making life brighter just by being in it.
+    I’m really grateful for you 🌸
+  </p>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playMusic() {
+  document.getElementById("bgMusic").play();
+}
+
+function revealSecret() {
+  document.getElementById("secret").style.display = "block";
+}
+
+/* Floating hearts */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}, 500);
+</script>
+
+</body>
+</html>
